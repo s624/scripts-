@@ -29,21 +29,21 @@
  59 7-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""start-the-session"\"  "make precise aim for the session." 
  59 7-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)  play ~/Music/notification/start.mp3 
 
- 10 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""10 min "\"  "what were you thinking for last 10min, hope you were in the present."  
+ 10 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""10 min "\"  "*** *** *** *** last 10min, hope you were **** **** ****."  
  10 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)  play ~/Music/notification/10.mp3 
 
- 20 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""20min "\"  "what were you thinking for last 10min, hope u were not fidgting and somewhere over more than one month ago."  
+ 20 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""20min "\"  "**** **** **** **** last 10min, hope u were **** **** **** ****."  
  20 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)  play ~/Music/notification/20.mp3 
 
 
- 30 8-23  * * *  XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""half-session"\"  "Whats your progress so far."  
+ 30 8-23  * * *  XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""half-session"\" **** **** ****."  
  30 8-23  * * *  XDG_RUNTIME_DIR=/run/user/$(id -u)  play ~/Music/notification/half-session.mp3 
 
 
- 40 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""40min "\"  "what were you thinking for last 10min, hope u were not fidgting somewhere over more than one YEAR ago."  
+ 40 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""40min "\"  "**** **** ****."  
  40 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   play ~/Music/notification/40.mp3  
 
- 49 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""session ends"\"  "write if u accomplish ur precise aims with session number"  
+ 49 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send  -u critical \""session ends"\"  "****"  
  49 8-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)  play ~/Music/notification/end.mp3 
  
 
