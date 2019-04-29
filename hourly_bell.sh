@@ -9,12 +9,18 @@
 ### the colon signifies that the value of that flag is needed.
 ### without a colon values on that flag is not needed. What does it mean? IDK. 
 ### But the program doesn't work right way without the colons. 
+Default_File=~/Music/short-bells/light_trim.mp3
+
 while getopts 'hf:v:s:m:' opt; do
     case "${opt}" in 
     h ) echo " the flags r hf:v:s:m: stands for file Volume seconds and \
       minnutes, the default values of sec is 60 and min is 1 and music \
       is bracked " ; exit ;;
-    f ) FILEE=${OPTARG}  ;;
+    f ) FILEE=${OPTARG} ; 
+        if [ ! -f ${FILEE} ]; then 
+          echo "file not found taking default file" ;
+          FILEE=${Default_File}
+        fi   ;;
     v ) Volume=${OPTARG} ;;
     s ) Sec=${OPTARG}    ;;
     m ) Min=${OPTARG} ;;
@@ -25,7 +31,11 @@ while getopts 'hf:v:s:m:' opt; do
 
 
 ### These are the default values of the flags 
-FILEE="${FILEE:=~/Music/short-bells/braked_good.mp3}" 
+if test -f ${Default_File} ; then
+  FILEE="${FILEE:=${Default_File}}" 
+else 
+  echo "Default_File not found" 
+fi
 Volume="${Volume:=1}" 
 Sec="${Sec:=60}"
 Min="${Min:=1}"
