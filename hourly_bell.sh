@@ -24,7 +24,7 @@ while getopts 'hf:v:s:m:' opt; do
           echo "file not found taking default file" ;
           FILEE=${Default_File}
         fi   ;;
-      v ) let Volume=$(echo print\(${OPTARG}*\(100.0/${System_volume}\)\)|python3) ;;
+      v ) Volume=$(echo print\(${OPTARG}*\(100.0/${System_volume}\)\)|python3) ;;
     s ) Sec=${OPTARG}    ;;
     m ) Min=${OPTARG} ;;
     esac
