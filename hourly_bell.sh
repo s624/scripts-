@@ -9,8 +9,9 @@
 ### the colon signifies that the value of that flag is needed.
 ### without a colon values on that flag is not needed. What does it mean? IDK. 
 ### But the program doesn't work right way without the colons. 
-Default_File=~/Music/short-bells/light_trim.mp3
-System_volume=$(python3 ~/.local/bin/volume.py)
+Default_File=~/Music/short-bells/light_trim.mp3;
+System_volume=$(python3 ~/.local/bin/volume.py);
+echo System_volume=${System_volume};   
 ### to trim the music file use -->
 ### sox input.mp3 ouput.mp3 trim ofset_time_value length_to_trim
 while getopts 'hf:v:s:m:' opt; do
@@ -24,7 +25,8 @@ while getopts 'hf:v:s:m:' opt; do
           echo "file not found taking default file" ;
           FILEE=${Default_File}
         fi   ;;
-      v ) Volume=$(echo print\(${OPTARG}*\(100.0/${System_volume}\)\)|python3) ;;
+    v ) Volume=$(echo print\(${OPTARG}*\(100.0/${System_volume}\)\)|python3) 
+      echo EffectiveVolume=$(echo print\(${Volume}*${System_volume}\)|python3);;
     s ) Sec=${OPTARG}    ;;
     m ) Min=${OPTARG} ;;
     esac
