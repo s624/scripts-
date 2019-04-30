@@ -54,10 +54,14 @@ while true; do
 ### it gives an error. 
   if [ $((${ss}%${Sec})) -eq 0 ] && [ $((${m}%${Min})) -eq 0 ]  ; then 
 		let "spend=spend+1"
-		if [ "$m" -ne 59 ] && [ "$m" -ne 10  ] && [ "$m" -ne 20 ] && \
-      [ "$m" -ne 30 ] && [ "$m" -ne 40 ] && [ "$m" -ne 49 ] ; then 
+		if [ "$m" -eq 59 ] && [ "$m" -eq 10  ] && [ "$m" -eq 20 ] && \
+      [ "$m" -eq 30 ] && [ "$m" -eq 40 ] && [ "$m" -eq 49 ]  && \
+      [ "$ss" -eq 0 ] ; then 
+      true 
+### true is a command that successfuly does nothing like pass statement in python. 
+    else
 			nohup play --volume $Volume  $FILEE > /dev/null 2>/dev/null
-## The > /dev/null and 2> directs the output error to null.  
+### The > /dev/null and 2> directs the output error to null.  
 		fi 
 			echo $spend	
 			sleep 1s 
