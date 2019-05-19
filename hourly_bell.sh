@@ -9,26 +9,44 @@
 ### the colon signifies that the value of that flag is needed.
 ### without a colon values on that flag is not needed. What does it mean? IDK. 
 ### But the program doesn't work right way without the colons. 
-Default_File=~/Music/short-bells/light_trim.mp3;
+Default_File=/usr/share/sounds/gnome/default/alerts/glass.ogg	 ;
+### System notification sound files are stored in /use/share/sound/ 
+defaultMaxTime=0.5 ### This is just the default value. This value will be changed if given an input 
 System_volume=$(python3 ~/.local/bin/volume.py);
 echo System_volume=${System_volume};   
 ### to trim the music file use -->
 ### sox input.mp3 ouput.mp3 trim ofset_time_value length_to_trim
-while getopts 'hf:v:s:m:' opt; do
+while getopts 'hf:v:s:m:L' opt; do
     case "${opt}" in 
-    h ) echo " the flags r hf:v:s:m: stands for file Volume factor if \
-      the Master volume is 100%  seconds and \
-      minnutes, the default values of sec is 60 and min is 1 and music \
-      is bracked " ; exit ;;
+    h ) echo -e " the flags r hf:v:s:m: stands for\\n \
+		f for file. Default value is ~/Music/short-bells/light_trim.mp3\
+	   	If u want to play random files from a directory \
+  	  	then use this flag to input a directory location instead of a \
+	  	file location, you may as well put a list of file-names using the \
+	  	special characters like partialFileName\\*.mp3, but remember if you use \
+	  	a special character use a '\' sign before it. \\n \
+		v for Volume-factor as if the Master volume is 100%. \n \
+		s for interval seconds, default value is 60. \\n \
+        m for interval minnutes, default value is 1 and. \\n \
+      	L for maximum time you want to play it in each interval.\
+	   	Default value is 0.5 Sec. it plays the file for a random \ 
+		duration bellow this maximum limit. if U don't want to randomize 
+		that period simply chose a large maximum time to play and choose\
+		a audio file whose length is bellow that limit. 	\\n \
+		GOOD LUCK BEING IN THE PRESENT; "
+	  exit ;;
     f ) FILEE=${OPTARG} ; 
-        if [ ! -f ${FILEE} ]; then 
-          echo "file not found taking default file" ;
+		#ls ${FILEE};
+		ls ${FILEE}>/dev/null 2>/dev/null;
+        if [ ! $?  ]; then 
+          echo "files not found taking default file" ;
           FILEE=${Default_File}
         fi   ;;
     v ) Volume=$(echo print\(${OPTARG}*\(100.0/${System_volume}\)\)|python3) 
       echo EffectiveVolume=$(echo print\(${Volume}*${System_volume}\)|python3);;
     s ) Sec=${OPTARG}    ;;
     m ) Min=${OPTARG} ;;
+	L ) maxTime=${OPTARG} ;;
     esac
   done 
 ### One extra space while puting a value in a variable and the variable is
@@ -44,7 +62,8 @@ fi
 Volume="${Volume:=$(echo print\(100.0/${System_volume}\)|python3)}" 
 Sec="${Sec:=60}"
 Min="${Min:=1}"
-
+maxTime="${maxTime:=${defaultMaxTime}}"
+echo $maxTime ;
 
 let " spend=0 "
 while true; do
@@ -62,7 +81,20 @@ while true; do
       true 
 ### true is a command that successfuly does nothing like pass statement in python. 
     else
-			nohup play --volume $Volume  $FILEE > /dev/null 2>/dev/null
+		shufledFileName=$(ls $FILEE | shuf -n 1); 
+		echo $shufledFileName 
+		length=$(sox --info -D ${shufledFileName} ); 
+### this comand stores the length of audio in seconds
+		#TF= $(echo print ${maxTime}\<${length} > python )
+		TF=$( echo ${maxTime}'<'${length} | bc -l )
+		if [ ${TF} -eq 1 ] ; then 
+			startTime=$(echo print \(${length}-${maxTime}\)\*\($RANDOM/32768.0\) | python );
+		else
+			startTime=0;
+		fi	
+### $RANDOM is a random number between 32767
+### if maxTime is less than the audio length then a random time between 0 to length-maxTime is chosen as startTime
+		nohup play --volume $Volume ${shufledFileName} trim ${startTime} ${maxTime}  > /dev/null 2>/dev/null
 ### The > /dev/null and 2> directs the output error to null.  
 		fi 
 			echo $spend	
@@ -72,6 +104,32 @@ while true; do
 	fi	
 	sleep 1s
 done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
