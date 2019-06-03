@@ -21,7 +21,7 @@ let mapleader = ","
 
 " Show line numbers
 set number
-
+set relativenumber
 " Show file stats
 set ruler
 
@@ -52,7 +52,7 @@ nnoremap j gj
 nnoremap k gk
 "
 " Allow hidden buffers
-set hidden
+"set hidden
 "
 " Rendering
 "set ttyfast
@@ -160,6 +160,8 @@ highlight CursorLine   cterm=None  ctermbg=0 ctermfg=None gui=None
 "for ash and foreground color none
 "without the cterm=None the current line gets also underlined
 
+set clipboard^=unnamedplus
+
 
 
 " use these command to install Plug a pluggin manager for vim
@@ -184,6 +186,7 @@ Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/kshenoy/vim-signature'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/altercation/vim-colors-solarized'
+Plug 'luochen1990/rainbow'
 " Initialize plugin system
 call plug#end()
 
@@ -191,18 +194,50 @@ call plug#end()
 set runtimepath^=~/.vim/bundle/ShowMarks/plugin/showmarks.vim
 
 
-
-
-
-
-
-
 " use the WipeReg command to wipe the registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
 
+"let g:rainbow_conf = {
+\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\	'guis': [''],
+\	'cterms': [''],
+\	'operators': '_,_',
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\	'separately': {
+\		'*': {},
+\		'markdown': {
+\			'parentheses_options': 'containedin=markdownCode contained', "enable rainbow for code blocks only
+\		},
+\		'lisp': {
+\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'], "lisp needs more colors for parentheses :)
+\		},
+\		'haskell': {
+\			'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'], "the haskell lang pragmas should be excluded
+\		},
+\		'vim': {
+\			'parentheses_options': 'containedin=vimFuncBody', "enable rainbow inside vim function body
+\		},
+\		'perl': {
+\			'syn_name_prefix': 'perlBlockFoldRainbow', "solve the [perl indent-depending-on-syntax problem](https://github.com/luochen1990/rainbow/issues/20)
+\		},
+\		'stylus': {
+\			'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'], "[vim css color](https://github.com/ap/vim-css-color) compatibility
+\		},
+\		'css': 0, "disable this plugin for css files
+\	}
+\}
 
 
+nnoremap <f1> :echo synIDattr(synID(line('.'), col('.'), 0), 'name')<cr>
+nnoremap <f2> :echo ("hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">")<cr>
+nnoremap <f3> :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')<cr>
+nnoremap <f4> :exec 'syn list '.synIDattr(synID(line('.'), col('.'), 0), 'name')<cr>
+
+let g:rainbow_active = 1
 
 
 

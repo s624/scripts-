@@ -7,7 +7,7 @@ DEFAULT_FILE='/usr/share/sounds/gnome/default/alerts/*';
 
 if( os.system("nohup ls %s >/dev/null 2>/dev/null"%DEFAULT_FILE)!=0  ):
     print("DEFAULT_FILE not found")
-DEFAULT_SEC=30;
+DEFAULT_SEC=60;
 
 parser=argparse.ArgumentParser();
 parser.add_argument("-f","--file"  ,help="put the filenames here if u use special characters like * then dont forget to use '\\' before them"   , default=DEFAULT_FILE, type=str   )

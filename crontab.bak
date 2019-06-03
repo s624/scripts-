@@ -23,7 +23,6 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 # 
 # m h  dom mon dow   command
-@reboot setxkbmap -option caps:swapescape
 
  59 5-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)   /usr/bin/notify-send   \""start-the-session"\"  "make precise aim for the session." 
  59 5-23  * * * XDG_RUNTIME_DIR=/run/user/$(id -u)  play ~/Music/notification/start.mp3 && sleep 59

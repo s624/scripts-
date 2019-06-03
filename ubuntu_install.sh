@@ -2,7 +2,7 @@
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-#PACKAGE_LIST="google-chrome texlive-full calendar-indicator artha gfortran g++ gcc gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python-dev gimp gnuplot gnuplot-x11 gparted kate kile okular open-jdk-9-jre openssh-client openssh-server openssl pulseaudio simple-scan synaptic vim texmaker nautilus-dropbox vlc smplayer"
+#PACKAGE_LIST="google-chrome calendar-indicator artha gfortran g++ gcc gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python-dev gimp gnuplot gnuplot-x11 gparted kate kile okular open-jdk-9-jre openssh-client openssh-server openssl pulseaudio simple-scan synaptic vim texmaker nautilus-dropbox vlc smplayer texlive-full "
 
 PACKAGE_LIST="pm-utils  tmux   calendar-indicator artha gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python-dev gimp gnuplot gnuplot-x11 gparted texmaker okular open-jdk-9-jre openssh-client openssl pulseaudio simple-scan synaptic vim vim-gnome nautilus-dropbox vlc smplayer texlive-full gfortran  git sox libsox-fmt-all " 
 
@@ -27,16 +27,19 @@ for PACKAGE in ${PACKAGE_LIST}
     done
 
 
-PACKAGE_LIST_2=" git-all "
+PACKAGE_LIST_2=" git-all cmake chromium-browser python-espeak ipython3 gnome-tweaks openjdk-11-jdk     libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386  javacc javacc-doc"
 for PACKAGE in ${PACKAGE_LIST_2} 
 	do 
 		sudo apt install ${PACKAGE} -y 
 	done	
-
+pip install gTTS
 
 	
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux_ressurect/
 git clone https://github.com/tmux-plugins/tmux-continuum ~/.tmux/plugins/continuum/
+
+
+
 
 
 ### comment
@@ -60,10 +63,15 @@ git clone https://github.com/tmux-plugins/tmux-continuum ~/.tmux/plugins/continu
 
 #take a back up of cron file from /var/spool/cron/crontab/username
 
+cd ~/.Alpha/
+sudo dpkg -i ~/.Alpha/megasync-xUbuntu_18.04_amd64.deb
+sudo apt-get install -f 
+sudo dpkg -i ~/.Alpha/nautilus-megasync-xUbuntu_18.04_amd64.deb
+sudo apt-get install -f
 
 
 
-
+sudo snap install --classic eclipse
 
 
 

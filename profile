@@ -29,7 +29,7 @@ fi
 # to change ctrl and capslock
 #setxkbmap  -option ctrl:swapcaps
 # to change caps and escape 
-setxkbmap -option caps:swapescape 
+#setxkbmap -option caps:swapescape 
 
 
 

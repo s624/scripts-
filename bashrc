@@ -145,11 +145,21 @@ alias Amg7='ssh -X anandamohan@10.0.51.207'
 #alias Android_Studio= ' ~/TECH/Android/android-studio/bin/studio.sh'	  
 alias vol='echo $(python3 ~/.local/bin/volume.py)' 
 alias ttt='tmux attach -t $1 || tmux new -s $1' 
-alias trash='mv $1 ~/.local/share/Trash/files/$1'
+#alias trash='mv $1 ~/.local/share/Trash/files/$1'
 alias swapesc='setxkbmap -option caps:swapescape' 
 alias delTmuxHistory='rm ~/.tmux/resurrect/tmux_resurrect_*T*.txt; rm ~/.tmux/resurrect/last '
 
+function swap(){ setxkbmap -option ctrl:nocaps; setxkbmap -option shift:both_capslock_cancel; }
+
+function trash() { 
+	for i in $@
+	do
+		mv -t ~/.local/share/Trash/files $i;
+	done
+}
 
 TRASH=~/.local/share/Trash/files/
+
+
 
 
