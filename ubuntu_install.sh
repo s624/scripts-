@@ -71,8 +71,19 @@ sudo dpkg -i ~/.Alpha/nautilus-megasync-xUbuntu_18.04_amd64.deb
 sudo apt-get install -f
 
 
+#these are the dependencies for xcape
+sudo apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
+git clone https://github.com/alols/xcape
+make
+sudo make install
+
 
 sudo snap install --classic eclipse
+
+
+
+
+
 
 
 
