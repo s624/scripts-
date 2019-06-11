@@ -12,8 +12,8 @@ setxkbmap -option keypad:pointerkeys; # this makes shift+numlock turn on the num
 #this two lines I found from a reddit answer
 #https://www.reddit.com/r/linux/comments/5h63js/anyway_to_remap_caps_lock_to_be_both_escape_and/dayc5m2?utm_source=share&utm_medium=web2
 #these two lines set the caps as control modifier and as the escape button if pressed very quick with no other keys.
-setxkbmap -option 'caps:ctrl_modifier';
-xcape -e 'Caps_Lock=Escape';
+setxkbmap -option 'ctrl:swapcaps'      #  Swap Ctrl and Caps Lock
+xcape -e 'Control_L=Escape';
 
 
 
