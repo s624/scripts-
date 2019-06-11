@@ -9,3 +9,6 @@ else
 	gsettings set $key true
 fi
 
+
+xkbset ma 50 20 20 30 300
+

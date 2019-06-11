@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#!/usr/bin/python
 from gtts import gTTS
 import os, time, argparse
 import subprocess as sb
@@ -27,17 +27,15 @@ else:
         Not.save("/home/sg13ip006/Music/gTTS/%s/%s.mp3"%(Lang,str(i)))
         print(i)
 
-
+Count=0;
 while True:
     secondsNow=int(sb.check_output(["date", "+%S"]  ).decode().strip()) ; #print(secondsNow) ;
     minutesNow=int(sb.check_output(["date", "+%M"]  ).decode().strip()) ; #print(minutesNow) ;
-     
     if (secondsNow==0 and minutesNow not in [59,10,20,30,40,49]):
-        print('minutesNow '+str(minutesNow))
+        print('Count '+str(Count))
         os.system("play -v %d %s >/dev/null 2>/dev/null "%(Volume,"/home/sg13ip006/Music/gTTS/"+str(Lang)+'/'+str(minutesNow)+".mp3") )
+        Count=Count+1;  
         time.sleep(1)
-
-
 
 
 
