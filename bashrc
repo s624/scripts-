@@ -121,20 +121,20 @@ fi
 
 alias          e='exit'
 alias     Matlab='/usr/local/MATLAB/R2013a/bin/matlab'
-alias blackpearl='ssh -X sg13ip006@10.20.93.173'
+alias BlackPearl='ssh -X sg13ip006@10.20.93.173'
 alias    2ndhand='ssh -X sg13ip006@10.20.73.191'
 alias    amgdskp='ssh -X student3@10.20.92.240'
 alias    amgdskp-sftp='sftp student3@10.20.92.240'
 alias Dv='dirs -v'
 alias hhh='hostname'
 alias cdgvfs='cd /run/user/1000/gvfs/'
-alias source-change='sudo mv /etc/apt/sources.list /etc/apt/sources.list.temporary;sudo mv /etc/apt/sources.list.bak /etc/apt/sources.list;sudo mv /etc/apt/sources.list.temporary /etc/apt/sources.list.bak;'
-alias sspnd='sudo /usr/sbin/pm-suspend'
-alias matlab='/usr/local/MATLAB/R2016a/bin/matlab &'
-alias setproxy_serb='export {http,https,ftp}_proxy="http://2015h_abdo:hindhaymanthabet@196.1.114.80:2222/"'
-alias unset_proxy='unset {http,https,ftp}_proxy'
+#alias source-change='sudo mv /etc/apt/sources.list /etc/apt/sources.list.temporary;sudo mv /etc/apt/sources.list.bak /etc/apt/sources.list;sudo mv /etc/apt/sources.list.temporary /etc/apt/sources.list.bak;'
+alias Sspnd='sudo /usr/sbin/pm-suspend'
+alias Matlab='/usr/local/MATLAB/R2016a/bin/matlab &'
+alias Setproxy_serb='export {http,https,ftp}_proxy="http://2015h_abdo:hindhaymanthabet@196.1.114.80:2222/"'
+alias Unset_proxy='unset {http,https,ftp}_proxy'
 alias dipa='ssh -X sourajghosh@10.20.92.238' 
-alias soumenda='ssh -X sg13ip006@10.20.93.69'
+alias Soumenda='ssh -X sg13ip006@10.20.93.69'
 alias Amg='ssh -X student1@10.20.73.185'
 alias cluster='ssh -X sg13ip006@10.0.30.1'
 alias Cluster='sftp sg13ip006@10.0.30.1'
@@ -143,13 +143,16 @@ alias Amg5='ssh -X anandamohan@10.0.51.205'
 alias Amg6='ssh -X anandamohan@10.0.51.206'
 alias Amg7='ssh -X anandamohan@10.0.51.207'
 #alias Android_Studio= ' ~/TECH/Android/android-studio/bin/studio.sh'	  
-alias vol='echo $(python3 ~/.local/bin/volume.py)' 
+alias Vol='echo $(python3 ~/.local/bin/volume.py)' 
 alias ttt='tmux attach -t $1 || tmux new -s $1' 
 #alias trash='mv $1 ~/.local/share/Trash/files/$1'
-alias swapesc='setxkbmap -option caps:swapescape' 
+#alias SwapEsc='setxkbmap -option caps:swapescape' 
 alias delTmuxHistory='rm ~/.tmux/resurrect/tmux_resurrect_*T*.txt; rm ~/.tmux/resurrect/last '
+alias Day="echo `date +%F`___`date +%W`"       
+alias MenuEscape="xmodmap -e 'keycode 135 = Escape' "
 
-function swap(){ setxkbmap -option ctrl:nocaps; setxkbmap -option shift:both_capslock_cancel; }
+
+function Swap(){ setxkbmap -option ctrl:nocaps; setxkbmap -option shift:both_capslock_cancel; setxkbmap -option numpad:mac; setxkbmap -option keypad:pointerkeys; xmodmap -e 'keycode 135 = Escape' ; xkbset ma 50 20 20 30 300 ; }
 
 function trash() { 
 	for i in $@
