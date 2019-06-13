@@ -6,7 +6,7 @@
 #setxkbmap -option ctrl:nocaps; #this replaces the caps lock key with the function of control
 #setxkbmap -option shift:both_capslock_cancel; #this enables caps lock if both shifts are pressed together and disables it if any one of the shifts are pressed. 
 setxkbmap -option shift:both_capslock; #this enables caps lock if both shifts are pressed together. 
-setxkbmap -option numpad:mac; # this makes the numlock always on 
+#setxkbmap -option numpad:mac; # this makes the numlock always on 
 setxkbmap -option keypad:pointerkeys; # this makes shift+numlock turn on the numpad mouse emulator. 
 
 #this two lines I found from a reddit answer
