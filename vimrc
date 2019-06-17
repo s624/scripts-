@@ -151,14 +151,15 @@ autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 "this is to automatically save and load folds
 
-
 set cursorline
 set cursorcolumn
 highlight CursorColumn   ctermbg=None ctermfg=None
-highlight CursorLine   cterm=None  ctermbg=0 ctermfg=None gui=None
+highlight CursorLine cterm=bold  ctermbg=None  ctermfg=None gui=None
 "this highlights current line and column with background color 0 which stands
 "for ash and foreground color none
 "without the cterm=None the current line gets also underlined
+"with the cterm=None the current line doesn't ger underlined
+"the values of cterm can be bold underline reverse italic None
 
 set clipboard^=unnamedplus
 
@@ -238,9 +239,6 @@ nnoremap <f3> :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")
 nnoremap <f4> :exec 'syn list '.synIDattr(synID(line('.'), col('.'), 0), 'name')<cr>
 
 let g:rainbow_active = 1
-
-
-
 
 
 

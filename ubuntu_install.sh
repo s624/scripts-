@@ -4,7 +4,7 @@ sudo apt-get upgrade -y
 
 #PACKAGE_LIST="google-chrome calendar-indicator artha gfortran g++ gcc gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python-dev gimp gnuplot gnuplot-x11 gparted kate kile okular open-jdk-9-jre openssh-client openssh-server openssl pulseaudio simple-scan synaptic vim texmaker nautilus-dropbox vlc smplayer texlive-full "
 
-PACKAGE_LIST="pm-utils  tmux   calendar-indicator artha gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python3-numpy python3-scipy python-dev gimp gnuplot gnuplot-x11 gparted texmaker okular open-jdk-9-jre openssh-client openssl pulseaudio simple-scan synaptic vim vim-gnome nautilus-dropbox vlc smplayer texlive-full gfortran  git sox libsox-fmt-all pidgin qpdfview xkbset tlp powertop mesa-utils ffmpeg  obs-studio clipit" 
+PACKAGE_LIST="pm-utils  tmux   calendar-indicator artha gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python3-numpy python3-scipy python-dev gimp gnuplot gnuplot-x11 gparted texmaker okular open-jdk-9-jre openssh-client openssl pulseaudio simple-scan synaptic vim vim-gnome nautilus-dropbox vlc smplayer texlive-full gfortran  git sox libsox-fmt-all pidgin qpdfview xkbset tlp powertop mesa-utils ffmpeg  obs-studio clipit libcanberra-gtk-module libcanberra-gtk3-module gnome-shell-extensions at " 
 # mesa-utils  ffmpeg are prerequisites for obs-studio 
 # obs-studio is open broadcast studio
 # sox is terminal based music player
@@ -82,7 +82,11 @@ sudo snap install --classic eclipse
 
 
 
-
+####----------------------keyboard-shortcut-for-scrolling----------------------------------------
+# set the following command to some key combination for down scrolling     /bin/bash   -c  "sleep .001 &&  xdotool  click  --clearmodifiers --repeat 4 --delay 1   5"
+# set the following command to some key combination for up  scrolling     
+# ScrollDown /bin/bash   -c  "sleep .001 &&  xdotool  click  --clearmodifiers --repeat 1 --delay 1   5"
+# ScrollUp   /bin/bash   -c  "sleep .001 &&  xdotool  click  --clearmodifiers --repeat 1 --delay 1   4"
 
 
 
