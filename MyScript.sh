@@ -35,7 +35,7 @@ setxkbmap -option ctrl:menu_rctrl #this sets the menu key as right control key
 
 xkbset ma 50 20 20 30 300 ; #this sets the sensitivity of the numpad mouse emulator, feel free to to check what suits you. 
 
-
+xset r rate 250 33
 
 
 

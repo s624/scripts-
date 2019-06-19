@@ -4,10 +4,13 @@ sudo apt-get upgrade -y
 
 #PACKAGE_LIST="google-chrome calendar-indicator artha gfortran g++ gcc gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python-dev gimp gnuplot gnuplot-x11 gparted kate kile okular open-jdk-9-jre openssh-client openssh-server openssl pulseaudio simple-scan synaptic vim texmaker nautilus-dropbox vlc smplayer texlive-full "
 
-PACKAGE_LIST="pm-utils  tmux   calendar-indicator artha gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python3-numpy python3-scipy python-dev gimp gnuplot gnuplot-x11 gparted texmaker okular open-jdk-9-jre openssh-client openssl pulseaudio simple-scan synaptic vim vim-gnome nautilus-dropbox vlc smplayer texlive-full gfortran  git sox libsox-fmt-all pidgin qpdfview xkbset tlp powertop mesa-utils ffmpeg  obs-studio clipit libcanberra-gtk-module libcanberra-gtk3-module gnome-shell-extensions at " 
+PACKAGE_LIST="pm-utils  tmux   calendar-indicator artha gedit gedit-developer-plugins python3 python-pip python3-pip python-numpy python-scipy python3-numpy python3-scipy python3-matplotlib python-matplotlib python-dev gimp gnuplot gnuplot-x11 gparted texmaker okular open-jdk-9-jre openssh-client openssl pulseaudio simple-scan synaptic vim vim-gnome nautilus-dropbox vlc smplayer texlive-full gfortran  git sox libsox-fmt-all pidgin qpdfview xkbset tlp powertop mesa-utils ffmpeg  obs-studio clipit libcanberra-gtk-module libcanberra-gtk3-module gnome-shell-extensions at autokey-common autokey-gtk" 
+
 # mesa-utils  ffmpeg are prerequisites for obs-studio 
 # obs-studio is open broadcast studio
 # sox is terminal based music player
+
+# just installing the application autokey wont do, youhave to copy your autokey file from git into ~/.config 
 
 for PACKAGE in ${PACKAGE_LIST}
     do
@@ -41,6 +44,10 @@ git clone https://github.com/tmux-plugins/tmux-continuum ~/.tmux/plugins/continu
 
 
 
+# -------------for android studio--------------
+sudo apt-get install qemu-kvm
+sudo adduser $USER kvm 
+# ---------------------------------------------
 
 
 ### comment
@@ -87,6 +94,17 @@ sudo snap install --classic eclipse
 # set the following command to some key combination for up  scrolling     
 # ScrollDown /bin/bash   -c  "sleep .001 &&  xdotool  click  --clearmodifiers --repeat 1 --delay 1   5"
 # ScrollUp   /bin/bash   -c  "sleep .001 &&  xdotool  click  --clearmodifiers --repeat 1 --delay 1   4"
+
+
+
+
+
+echo -e  change the settings at /org/gnome/mutter/keybindings/switch-monitor '@as []'  either with dconf write or with dconf-editor to []
+
+echo -e  change the settings at /og/gnome/settings-daemon/plugins/media-keys/video-out to nothing literaly leave it blank, either with dconf write or with dconf editor
+
+
+
 
 
 

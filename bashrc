@@ -120,6 +120,8 @@ if ! shopt -oq posix; then
 fi
 
 alias          e='exit'
+alias        mv='mv -i'
+alias       cp='cp -i'
 alias     Matlab='/usr/local/MATLAB/R2013a/bin/matlab'
 alias BlackPearl='ssh -X sg13ip006@10.20.93.173'
 alias    2ndhand='ssh -X sg13ip006@10.20.73.191'
@@ -144,15 +146,19 @@ alias Amg6='ssh -X anandamohan@10.0.51.206'
 alias Amg7='ssh -X anandamohan@10.0.51.207'
 #alias Android_Studio= ' ~/TECH/Android/android-studio/bin/studio.sh'	  
 alias Vol='echo $(python3 ~/.local/bin/volume.py)' 
-alias ttt='tmux attach -t $1 || tmux new -s $1' 
+#alias ttt='tmux attach -t $1 || tmux new -s $1' 
 #alias trash='mv $1 ~/.local/share/Trash/files/$1'
 #alias SwapEsc='setxkbmap -option caps:swapescape' 
-alias delTmuxHistory='rm ~/.tmux/resurrect/tmux_resurrect_*T*.txt; rm ~/.tmux/resurrect/last '
+alias delTmuxHistory='mv -t ~/.local/share/Trash/files/ ~/.tmux/resurrect/tmux_resurrect_*T*.txt; mv -t ~/.local/share/Trash/files/  ~/.tmux/resurrect/last '
 alias Day="echo `date +%F`___`date +%W`"       
 alias MenuEscape="xmodmap -e 'keycode 135 = Escape' "
+alias EtcMyScript="/etc/init.d/MyScript.sh"
+alias Top3="chromium-browser > /dev/null 2>/dev/null  &   \
+           firefox           > /dev/null 2>/dev/null  &   \
+	       qpdfview          > /dev/null 2>/dev/null  &    "
+alias Starting="sudo tlp start ;MyScript.sh ; xcapeKeys.sh ;"
 
 
-function Swap(){ setxkbmap -option ctrl:nocaps; setxkbmap -option shift:both_capslock_cancel; setxkbmap -option numpad:mac; setxkbmap -option keypad:pointerkeys; xmodmap -e 'keycode 135 = Escape' ; xkbset ma 50 20 20 30 300 ; }
 
 function trash() { 
 	for i in $@
@@ -160,9 +166,21 @@ function trash() {
 		mv -t ~/.local/share/Trash/files $i;
 	done
 }
+function cdd() {
+	cd $1;
+	ls .
+}
+
+
 
 TRASH=~/.local/share/Trash/files/
 
 
 
+### some useful commands 
+#  xset q         shows the inforamation like whetheer 
+#                 auto repeat is on or off
+#  xset r rate delay rpeat_rate   sets the autorepeat delay and rate
+#
+#
 

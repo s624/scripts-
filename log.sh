@@ -11,13 +11,13 @@ cd /home/sg13ip006/MEGA/Diary/2019/Log
 
 
 
-if [ -f `date +%F` ]; then 
-	echo `date` ' -- ' >> `date +%F` 
-	vim  '+ normal G A' +startinsert!  `date +%F` 
+if [ -f `date +%F`.md ]; then 
+	echo '<'`date`'>' ' -- ' >> `date +%F`.md 
+	vim  '+ normal G A' +startinsert!  `date +%F`.md 
 else
-	touch `date +%F`
-	echo `date` >> `date +%F ` 
-	vim  '+ normal G A' +startinsert!  `date +%F` 
+	touch `date +%F`.md
+	echo '<'`date`'>' >> `date +%F`.md 
+	vim  '+ normal G A' +startinsert!  `date +%F`.md 
 fi
 
 # the exclamation mark with +startinsert starts the append mode. 
